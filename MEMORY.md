@@ -36,6 +36,17 @@
 2. **Proxmox SSH/root (host Intel)**: gestión del LXC 202 (`pct status/config/exec`).
 3. **Dentro del LXC 202**: stack Docker Compose en `/opt/frigate`.
 
+## Instalación fotovoltaica (resumen persistente)
+- Potencia FV: ~9 kW (20 paneles de 450 W) en instalación Este/Oeste, 2 strings.
+- Inversor: **INGECON SUN STORAGE 1Play TL M**.
+  - Firmware: `ABH1007_Z`.
+- Vatímetro externo: `CG-EM112-DIN AV0@1`.
+- Batería HV: **BYD PREMIUM HVM** de ~13.78 kWh (6 módulos de 2.78 kWh).
+- Modos/operativa:
+  - Puede verter a red (exportar) e importar.
+  - Soporta funcionamiento en aislado mediante línea de cargas críticas.
+  - Existe relé de desvío a críticas (hasta ~6 kW).
+
 ## Secretos
 - Contraseña general domótica en `.env` como `DOMOTICA_GENERAL_PASS`.
 - Token HA guardado en `.env` como `HA_TOKEN`.
