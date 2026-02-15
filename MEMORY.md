@@ -23,12 +23,18 @@
 - Proxmox Intel (video/frigate): `192.168.201.253:8006`.
 - Home Assistant VM 101: `http://192.168.200.146:8123`.
 - Domo server (BBDD HA): `192.168.200.2` (MariaDB + InfluxDB).
+- Frigate LXC 202 (`frigate-lxc`): IP activa `192.168.200.238`, web/API `http://192.168.200.238:5000`.
 
 ## Caminos de acceso a Home Assistant (usar el más eficaz)
 1. **MCP/API** (token LEO) para control diario y contexto global.
 2. **REST API por curl** (`/api/states`, `/api/services/*`) para precisión por `entity_id`.
 3. **Proxmox SSH/root** para gestión de VM 101 (`qm`, consola, estado, restart).
 4. **SSH a HAOS** para tareas internas limitadas.
+
+## Caminos de acceso a Frigate
+1. **Web/API Frigate**: `http://192.168.200.238:5000` (ej. `/api/version`).
+2. **Proxmox SSH/root (host Intel)**: gestión del LXC 202 (`pct status/config/exec`).
+3. **Dentro del LXC 202**: stack Docker Compose en `/opt/frigate`.
 
 ## Secretos
 - Contraseña general domótica en `.env` como `DOMOTICA_GENERAL_PASS`.
