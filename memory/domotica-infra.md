@@ -12,6 +12,7 @@
   - **Home Assistant OS (VM 101):** `192.168.200.146:8123` (Core)
     - **Caminos de acceso:**
       - API/MCP (token LEO) para control funcional diario.
+      - API REST directa vía `curl` sobre `/api/states` y `/api/services/*` para diagnóstico fino y acciones por `entity_id`.
       - Gestión de VM vía Proxmox host AMD (SSH/root + `qm`).
       - SSH a HAOS (limitado para operación interna del sistema).
   - **Domo Server (Linux):** `192.168.200.2`
