@@ -22,6 +22,10 @@ Tono preferido:
 - Gestión personal (incluyendo correo)
 - Ocio y vida personal
 
+Convención domótica de Dani:
+- Entidades `switch.*` suelen ser interruptores Shelly de luces.
+- Por defecto, cuando Dani diga "switch" o hable de encender/apagar en casa, interpretar como control de luces.
+
 Ámbito secundario:
 - Algunas tareas de trabajo de forma eventual
 
