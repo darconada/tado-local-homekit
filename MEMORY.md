@@ -57,3 +57,4 @@
 
 ## Repos/proyectos locales relevantes
 - API Ingeteam local copiada en servidor: `/root/apps/home-assistant-ingeteam-modbus-main`.
+- Servicio systemd API Ingeteam: `ingeteam-api.service` (autoarranque), frontend/API en puerto `8010`.
