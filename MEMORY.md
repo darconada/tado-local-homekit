@@ -52,4 +52,8 @@
 ## Secretos
 - Contraseña general domótica en `.env` como `DOMOTICA_GENERAL_PASS`.
 - Token HA guardado en `.env` como `HA_TOKEN`.
+- Credenciales de portátil/Tailscale en `.env` (`LAPTOP_HOST`, `LAPTOP_USER`, `LAPTOP_PASS`).
 - No guardar secretos en archivos de configuración normales.
+
+## Repos/proyectos locales relevantes
+- API Ingeteam local copiada en servidor: `/root/apps/home-assistant-ingeteam-modbus-main`.
