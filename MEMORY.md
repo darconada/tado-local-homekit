@@ -13,7 +13,7 @@
 - **Nunca aplicar cambios de configuración sin autorización explícita.**
   - Por defecto: analizar y proponer.
   - Solo ejecutar si Dani dice explícitamente “hazlo/aplícalo”.
-
+- Para acceso Tailscale Serve/Funnel en OpenClaw: mantener `gateway.bind=loopback` (no tailnet directo).
 ## Convenciones domóticas de Dani
 - `switch.*` suele referirse a **interruptores Shelly de luces**.
 - Si Dani pide “encender/apagar X” y hay duda, priorizar `switch` como luz.
