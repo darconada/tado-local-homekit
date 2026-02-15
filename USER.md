@@ -24,3 +24,6 @@ Tono preferido:
 
 Ámbito secundario:
 - Algunas tareas de trabajo de forma eventual
+
+Restricciones operativas:
+- Prohibido reiniciar el Gateway sin permiso explícito de Dani
