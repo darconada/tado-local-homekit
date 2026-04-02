@@ -1,0 +1,12 @@
+{
+  "domain": "tado_homekit_local",
+  "name": "Tado HomeKit Local",
+  "version": "0.1.0",
+  "documentation": "https://github.com/darconada/tado-local-homekit",
+  "issue_tracker": "https://github.com/darconada/tado-local-homekit/issues",
+  "integration_type": "hub",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "requirements": [],
+  "codeowners": ["@darconada"]
+}

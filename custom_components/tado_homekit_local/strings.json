@@ -1,0 +1,41 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Tado HomeKit Local backend",
+        "data": {
+          "name": "Name",
+          "host": "Backend host",
+          "port": "Backend port",
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the local Tado backend"
+    },
+    "abort": {
+      "already_configured": "This backend is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Tado HomeKit Local options",
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "current_temperature": {
+        "name": "Current temperature"
+      },
+      "humidity": {
+        "name": "Humidity"
+      }
+    }
+  }
+}
