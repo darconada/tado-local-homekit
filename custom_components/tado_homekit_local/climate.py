@@ -31,7 +31,7 @@ class TadoHomeKitLocalClimate(TadoHomeKitLocalEntity, ClimateEntity):
         | ClimateEntityFeature.TURN_ON
         | ClimateEntityFeature.TURN_OFF
     )
-    _attr_hvac_modes = [HVACMode.HEAT, HVACMode.AUTO, HVACMode.OFF]
+    _attr_hvac_modes = [HVACMode.HEAT, HVACMode.OFF]
     _attr_min_temp = 5.0
     _attr_max_temp = 25.0
     _attr_target_temperature_step = 0.1
@@ -55,12 +55,7 @@ class TadoHomeKitLocalClimate(TadoHomeKitLocalEntity, ClimateEntity):
 
     @property
     def hvac_mode(self) -> HVACMode:
-        mode = self.zone["hvac_mode"]
-        if mode == "off":
-            return HVACMode.OFF
-        # Backend cannot distinguish true schedule from resumed heating yet;
-        # we surface AUTO-capable UX via set_hvac_mode even though readback remains heat/off.
-        return HVACMode.HEAT
+        return HVACMode.HEAT if self.zone["hvac_mode"] == "heat" else HVACMode.OFF
 
     @property
     def hvac_action(self) -> HVACAction:
@@ -76,12 +71,7 @@ class TadoHomeKitLocalClimate(TadoHomeKitLocalEntity, ClimateEntity):
         await self.coordinator.async_request_refresh()
 
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
-        if hvac_mode == HVACMode.HEAT:
-            mode = "heat"
-        elif hvac_mode == HVACMode.AUTO:
-            mode = "auto"
-        else:
-            mode = "off"
+        mode = "heat" if hvac_mode == HVACMode.HEAT else "off"
         await self._client.async_set_zone(self._slug, mode=mode)
         await self.coordinator.async_request_refresh()
 

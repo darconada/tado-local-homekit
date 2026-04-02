@@ -46,7 +46,7 @@ SLUG_TO_NAME = {
 
 class ZoneSetRequest(BaseModel):
     temperature: Optional[float] = None
-    mode: Optional[str] = None  # off|heat|auto
+    mode: Optional[str] = None  # off|heat
 
 
 @dataclass
@@ -222,12 +222,10 @@ class TadoBridge:
                 mode = mode.lower()
                 if mode == "off":
                     writes.append((zone.aid, zone.iids["target_hvac"], 0))
-                elif mode in ("heat", "auto"):
-                    # 'auto' here means resume heating without changing target temp.
-                    # It is AUTO-like UX, not guaranteed full Tado cloud schedule semantics.
+                elif mode == "heat":
                     writes.append((zone.aid, zone.iids["target_hvac"], 1))
                 else:
-                    raise ValueError("mode must be 'off', 'heat' or 'auto'")
+                    raise ValueError("mode must be 'off' or 'heat'")
             if temperature is not None:
                 writes.append((zone.aid, zone.iids["target_temp"], float(temperature)))
                 # If setting temp and mode omitted, force heat for practical UX.

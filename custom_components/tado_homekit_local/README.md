@@ -14,7 +14,7 @@ This custom component connects Home Assistant to the local backend exposed by th
 ## Current scope
 - Local heating zones only
 - No hot water yet
-- Includes an AUTO-like mode that re-enables heating without changing target temperature; readback still reflects local heat/off state, not guaranteed full Tado cloud schedule semantics
+- No true Tado smart schedule/AUTO semantics yet
 
 ## Install (manual)
 Copy `custom_components/tado_homekit_local` into your HA config `custom_components/` directory and restart Home Assistant.
