@@ -1,0 +1,26 @@
+# Secrets / local auth
+.env
+*.pem
+*.key
+*.crt
+*token*.json
+*credentials*.json
+gmail-auth-url*.txt
+
+# OpenClaw / local runtime state
+.openclaw/
+.clawhub/
+.brv/
+
+# Python local envs / dependency dumps
+.venv*/
+.pydeps*/
+__pycache__/
+*.pyc
+
+# Tado local sensitive artifacts
+research/tado-homekit/tado-homekit-pairing.json
+research/tado-homekit/tado-homekit-accessories.json
+
+# Editor / OS noise
+.DS_Store
