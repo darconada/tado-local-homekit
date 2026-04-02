@@ -134,8 +134,9 @@ Payload:
 ```
 
 Rules:
-- `mode` supports `off` or `heat`
+- `mode` supports `off`, `heat`, or `auto`
 - if `temperature` is provided without `mode`, service forces `heat`
+- `auto` currently means: re-enable heating without changing target temperature (AUTO-like UX; not guaranteed full cloud schedule semantics)
 - no support yet for true Tado schedule/auto semantics beyond this basic mapping
 
 Examples:
