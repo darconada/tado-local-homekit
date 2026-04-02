@@ -208,6 +208,13 @@ class TadoBridge:
             raise KeyError(slug)
         return zones[slug]
 
+    async def _read_zone_state_locked(self, zone: ZoneMeta) -> Dict[str, Any]:
+        """Read one zone while assuming the caller already holds the bridge lock."""
+        assert self._pairing is not None
+        chars = [(zone.aid, iid) for iid in zone.iids.values()]
+        raw = await self._pairing.get_characteristics(chars)
+        return self._format_zone_state(zone, raw)
+
     async def set_zone(self, slug: str, temperature: Optional[float], mode: Optional[str]) -> Dict[str, Any]:
         async with self._lock:
             await self._ensure_connected()
@@ -236,7 +243,7 @@ class TadoBridge:
             result = await self._pairing.put_characteristics(writes)
             await asyncio.sleep(1.0)
             self._last_state_cache = (0.0, {})
-            zone_state = await self.get_zone(slug, force=True)
+            zone_state = await self._read_zone_state_locked(zone)
             return {"write_result": result, "zone": zone_state}
 
 
